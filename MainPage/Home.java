@@ -6,9 +6,12 @@ public class Home{ //Calculate and mkke double array from user's input to make p
   
   public double[] createList(double[] arr2, boolean[] arr3){
     for(int i = 0; i < arr2.length; i++){
-      if(i == 0 || i == 1){
-        list[i] = i * 105;
+      if(i == 0){
+        list[0] = i * 105;
       }
+      if(i == 1){
+        list[1] = i * 105;
+      }      
       if(i == 2){
         list[i] = i * 113;
       }
@@ -23,10 +26,10 @@ public class Home{ //Calculate and mkke double array from user's input to make p
       }
     } 
     for(int i = 0; i < arr3.length; i++){
-      if(i == 0){
+      if(i == 0 && (!arr3[0])){
         list[5] = 184;
       }
-      else{
+      else if((!arr3[1])){
         list[6] = 166;
       }
     }

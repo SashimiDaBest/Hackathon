@@ -13,15 +13,15 @@ public class Main{
     double[] five = new double[5];
 //print and get input          
     for(int i = 0; i < list2.length; i++){
-      if(i >= 5){
-        System.out.print(list2[i]);
-        boolean ans = in.nextBoolean();
-        two[i-5] = ans;
-      }
-      else{
+      if(i < 5){
         System.out.print(list2[i]);
         double value = in.nextDouble();
         five[i] = value;
+        }
+      else{
+        System.out.print(list2[i]);
+        boolean ans = in.nextBoolean();
+        two[i-5] = ans;
       }
     }
     one.createList(five, two);
