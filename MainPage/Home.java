@@ -1,6 +1,6 @@
 import java.util.*;
 //simple formula by https://justenergy.com/blog/how-to-calculate-your-carbon-footprint/
-public class Home{
+public class Home{ //Calculate and mkke double array from user's input to make pie chart
   public static void main(String[] args){
     Scanner in = new Scanner(System.in);
     System.out.println("User Input (MONTHLY)");
@@ -26,8 +26,6 @@ public class Home{
     createList(list, five, two);
     formatReturn(list);
 
-
-    
   }
   static double[] createList(double[] list, double[] arr2, boolean[] arr3){
     for(int i = 0; i < arr2.length; i++){
@@ -63,5 +61,9 @@ public class Home{
       total += x;
     }
     System.out.println("User Annual Carbon Footprint: "+total);
+  }
+
+  static double[] getArr(){
+    return list;
   }
 }
