@@ -23,9 +23,14 @@ public class Home{
         five[i] = value;
       }
     }
+    createList(list, five, two);
+    formatReturn(list);
 
-    //list = Home.createList(list);
-    for(int i = 0; i < five.length; i++){
+
+    
+  }
+  static double[] createList(double[] list, double[] arr2, boolean[] arr3){
+    for(int i = 0; i < arr2.length; i++){
       if(i == 0 || i == 1){
         list[i] = i * 105;
       }
@@ -35,14 +40,14 @@ public class Home{
       if(i == 3){
         list[i] = i * 12 * 0.79;
       }
-      if(i == 4 && five[i] <= 4){
+      if(i == 4 && arr2[i] <= 4){
         list[i] = i * 1100; 
       }
       else{
         list[i] = i * 4400;
       }
-    }
-    for(int i = 0; i < two.length; i++){
+    } 
+    for(int i = 0; i < arr3.length; i++){
       if(i == 0){
         list[3] = i + 184;
       }
@@ -50,17 +55,13 @@ public class Home{
         list[4] = i + 166;
       }
     }
-
+    return list;
+  }
+  static void formatReturn(double[] list){
     double total = 0;
     for(double x:list){
       total += x;
     }
-
     System.out.println("User Annual Carbon Footprint: "+total);
-    
-  }
-  public double[] createList(double[] arr){
-    
-    return arr;
   }
 }
