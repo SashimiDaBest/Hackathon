@@ -1,2 +1,1 @@
-# PoolesvilleHackathon
-//GO2
+# Hackathon Code 
