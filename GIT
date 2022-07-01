@@ -1,0 +1,100 @@
+import java.util.*;
+
+public class Intro{
+    public static void main(String[] args)
+    {
+        String[] chosen = new String[3];
+        String[] list = {"housing", "transportation", "food", "utility",
+            "insurance", "medical care", "savings", "personal spendings", "entertainment"};
+        double[] minVal = {25,10,10,5,10,5,10,5,5};
+        double[] maxVal = {35,15,15,10,25,10,20,10,10};
+        double[] differ = {10,5,5,5,15,5,10,5,5};
+        Scanner in = new Scanner(System.in);
+        System.out.print("Monthly income: ");
+        double mIncome = in.nextInt();
+
+        System.out.print("Money wished to save: ");
+        double goal = in.nextInt();
+
+//print list
+        for(String x : list){
+            System.out.print(x + " ");
+        }
+        System.out.println();
+//select chosen
+        int count = 0;
+        int[] select = new int[3];
+        int total = 0;
+        boolean same = false;
+        for(int x = 0; x < 3; x++){
+
+            System.out.print("Selected number: ");
+            int choice = in.nextInt();
+            int set = choice - 1;
+    //make sure there's no two same choice
+            select[x] = choice;
+            for(int i:select){
+                if(i == choice){
+                    count++;
+                }
+                if(count > 1){
+                    same = true;
+                }
+                count = 0;
+            }
+            while(same == true){
+                System.out.print("Choose again: ");
+                choice = in.nextInt();
+                select[x] = choice;
+                for(int i:select){
+                    if(i != choice){
+                        same = false;
+                    }
+                }
+            }
+    //make sure the total percentage is 100
+            chosen[x] = list[set]; //add the selected
+            minVal[set] = maxVal[set]; //change percent
+            total += differ[set]; //add percent of the chosen
+            System.out.println(total);
+            if(total == 15){
+                x = 3;
+            }
+            if(total > 15){
+                total -= differ[set];
+                    same = true;
+            }
+            while(same == true){
+                System.out.print("Choose again: ");
+                choice = in.nextInt();
+                select[x] = choice;
+                for(int i:select){
+                    if(i != choice){
+                        same = false;
+                    }
+                }
+            }
+        }
+
+//print chosen
+        for(String x:chosen){
+            System.out.print(x + " ");
+        }
+        System.out.println();
+//print value
+        for(double x:minVal){
+            System.out.print(x + " ");
+        }
+        System.out.println();
+//calculate
+        double diff = mIncome - goal;
+        double[] result = new double[minVal.length];
+        for(int i = 0; i < minVal.length; i++){
+            result[i] = diff * (minVal[i]/100);
+        }
+//print result
+        for(int x = 0; x < list.length; x++){
+            System.out.println(list[x] + "\t" + result[x]);
+        }
+    }
+}
